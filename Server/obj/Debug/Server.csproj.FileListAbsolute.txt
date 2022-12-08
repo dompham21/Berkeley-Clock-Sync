@@ -1,0 +1,39 @@
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\bin\Debug\Server.exe.config
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\bin\Debug\Server.exe
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\bin\Debug\Server.pdb
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\obj\Debug\Server.Server.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\obj\Debug\Server.exe
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Server\obj\Debug\Server.pdb
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\bin\Debug\Server.exe.config
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\bin\Debug\Server.exe
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\bin\Debug\Server.pdb
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\obj\Debug\Server.Server.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\obj\Debug\Server.exe
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Server\obj\Debug\Server.pdb
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\bin\Debug\Server.exe.config
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\bin\Debug\Server.exe
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\bin\Debug\Server.pdb
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\obj\Debug\Server.Server.resources
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\obj\Debug\Server.exe
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Server\obj\Debug\Server.pdb
+C:\Users\dom\source\repos\client-server-chat\Server\bin\Debug\Server.exe.config
+C:\Users\dom\source\repos\client-server-chat\Server\bin\Debug\Server.exe
+C:\Users\dom\source\repos\client-server-chat\Server\bin\Debug\Server.pdb
+C:\Users\dom\source\repos\client-server-chat\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\dom\source\repos\client-server-chat\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\dom\source\repos\client-server-chat\Server\obj\Debug\Server.Server.resources
+C:\Users\dom\source\repos\client-server-chat\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\dom\source\repos\client-server-chat\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\dom\source\repos\client-server-chat\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\dom\source\repos\client-server-chat\Server\obj\Debug\Server.exe
+C:\Users\dom\source\repos\client-server-chat\Server\obj\Debug\Server.pdb

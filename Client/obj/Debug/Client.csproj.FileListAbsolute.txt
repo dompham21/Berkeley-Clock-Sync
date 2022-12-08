@@ -1,0 +1,47 @@
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\bin\Debug\Client.exe.config
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\bin\Debug\Client.exe
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\bin\Debug\Client.pdb
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.formMain.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.formLogin.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.formPrivate.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.exe
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.pdb
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\bin\Debug\Client.exe.config
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\bin\Debug\Client.exe
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\bin\Debug\Client.pdb
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.formMain.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.formLogin.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.formPrivate.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.exe
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.pdb
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\bin\Debug\Client.exe.config
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\bin\Debug\Client.exe
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\bin\Debug\Client.pdb
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.formMain.resources
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.formLogin.resources
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.formPrivate.resources
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.exe
+C:\Users\Windows 10\source\repos\CLIENT_SERVER_CHAT\Client\obj\Debug\Client.pdb
+C:\Users\dom\Source\Repos\client-server-chat\Client\bin\Debug\Client.exe.config
+C:\Users\dom\Source\Repos\client-server-chat\Client\bin\Debug\Client.exe
+C:\Users\dom\Source\Repos\client-server-chat\Client\bin\Debug\Client.pdb
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.csproj.SuggestedBindingRedirects.cache
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.formMain.resources
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.formLogin.resources
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.formPrivate.resources
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.exe
+C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.pdb
