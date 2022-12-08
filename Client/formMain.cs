@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,7 +24,6 @@ namespace Client
         string readData = null;
         Thread ctThread;
         String name = null;
-        //Dictionary<string, Object> nowChatting = new Dictionary<string, Object>();
         List<string> nowChatting = new List<string>();
         List<string> chat = new List<string>();
 
@@ -39,12 +39,57 @@ namespace Client
 
         }
 
+        [DllImport("kernel32.dll", EntryPoint = "SetSystemTime", SetLastError = true)]
+        private static extern bool Win32SetSystemTime(ref SystemTime sysTime);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct SystemTime
+        {
+            public ushort Year;
+            public ushort Month;
+            public ushort DayOfWeek;
+            public ushort Day;
+            public ushort Hour;
+            public ushort Minute;
+            public ushort Second;
+            public ushort Millisecond;
+        };
+
+        public static void SetSystemDateTime(int year, int month, int day, int hour,
+        int minute, int second, int millisecond = 0)
+        {
+            SystemTime updatedTime = new SystemTime
+            {
+                Year = (ushort)year,
+                Month = (ushort)month,
+                Day = (ushort)day,
+                Hour = (ushort)hour,
+                Minute = (ushort)minute,
+                Second = (ushort)second,
+                Millisecond = (ushort)millisecond
+            };
+
+            // If this returns false, then the problem is most likely that you don't have the 
+            // admin privileges required to set the system clock
+            if (!Win32SetSystemTime(ref updatedTime))
+            {
+                throw new Win32Exception(Marshal.GetLastWin32Error());
+            }
+        }
+
+        public static void SetSystemDateTime(DateTime dateTime)
+        {
+            dateTime = dateTime.ToUniversalTime();
+            SetSystemDateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute,
+                dateTime.Second, 0);
+        }
+
         private void btnConnect_Click(object sender, EventArgs e)
         {
             clientSocket = new TcpClient();
             try
             {
-                clientSocket.Connect("127.0.0.1", 5000);
+                clientSocket.Connect("192.168.0.7", 5000);
                 readData = "Connected to Server ";
                 msg();
 
@@ -118,6 +163,12 @@ namespace Client
                             serverStream.Write(outStream, 0, outStream.Length);
                             serverStream.Flush();
                             chat.Clear();
+                            break;
+                        case "time":
+                            String timeSyncString = parts[1];
+                            TimeSpan time = TimeSpan.Parse(timeSyncString);
+                            DateTime timeSync = DateTime.Today.Add(time);
+                            SetSystemDateTime(timeSync);
                             break;
                     }
 

@@ -39,7 +39,6 @@ C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.csproj.Asse
 C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.csproj.SuggestedBindingRedirects.cache
 C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.formMain.resources
 C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.formLogin.resources
-C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.formPrivate.resources
 C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.Properties.Resources.resources
 C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.csproj.GenerateResource.cache
 C:\Users\dom\Source\Repos\client-server-chat\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache

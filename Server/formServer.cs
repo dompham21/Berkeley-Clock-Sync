@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
@@ -30,13 +31,58 @@ namespace Server
         CancellationTokenSource cancellation;
         List<string> chat = new List<string>();
         Dictionary<string, DateTime> clientClock = new Dictionary<string, DateTime>();
-        int clientNumber = 1;
+        int clientNumber = 2;
         DateTime currentTime;
 
         public Server()
         {
             CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
+        }
+
+        [DllImport("kernel32.dll", EntryPoint = "SetSystemTime", SetLastError = true)]
+        private static extern bool Win32SetSystemTime(ref SystemTime sysTime);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct SystemTime
+        {
+            public ushort Year;
+            public ushort Month;
+            public ushort DayOfWeek;
+            public ushort Day;
+            public ushort Hour;
+            public ushort Minute;
+            public ushort Second;
+            public ushort Millisecond;
+        };
+
+        public static void SetSystemDateTime(int year, int month, int day, int hour,
+        int minute, int second, int millisecond = 0)
+        {
+            SystemTime updatedTime = new SystemTime
+            {
+                Year = (ushort)year,
+                Month = (ushort)month,
+                Day = (ushort)day,
+                Hour = (ushort)hour,
+                Minute = (ushort)minute,
+                Second = (ushort)second,
+                Millisecond = (ushort)millisecond
+            };
+
+            // If this returns false, then the problem is most likely that you don't have the 
+            // admin privileges required to set the system clock
+            if (!Win32SetSystemTime(ref updatedTime))
+            {
+                throw new Win32Exception(Marshal.GetLastWin32Error());
+            }
+        }
+
+        public static void SetSystemDateTime(DateTime dateTime)
+        {
+            dateTime = dateTime.ToUniversalTime();
+            SetSystemDateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute,
+                dateTime.Second, 0);
         }
 
         private async void btnStart_Click(object sender, EventArgs e)
@@ -53,7 +99,7 @@ namespace Server
 
         public async Task startServer()
         {
-            listener = new TcpListener(IPAddress.Parse("127.0.0.1"), 5000);
+            listener = new TcpListener(IPAddress.Parse("192.168.0.7"), 5000);
             listener.Start();
             updateUI("Server Started at " + listener.LocalEndpoint);
             updateUI("Waiting for Clients");
@@ -77,7 +123,7 @@ namespace Server
                     clientList.Add(username, client);
                     listBox1.Items.Add(username);
                     updateUI("Connected to user " + username + " - " + client.Client.RemoteEndPoint);
-                    announce(username + " Joined ", username, false); // sent msg againt client for join notify
+                    announce(username + " Joined "); // sent msg againt client for join notify
 
                     await Task.Delay(1000).ContinueWith(t => sendUsersList()); // sent list of Client Online to each 
 
@@ -102,7 +148,7 @@ namespace Server
         /// <param name="msg"></param>
         /// <param name="uName"></param>
         /// <param name="flag"></param>
-        public void announce(string msg, string uName, bool flag)
+        public void announce(string msg)
         {
             try
             {
@@ -113,24 +159,10 @@ namespace Server
                     NetworkStream broadcastStream = broadcastSocket.GetStream();
                     Byte[] broadcastBytes = null;
 
-                    if (flag)
-                    {
-                        //broadcastBytes = Encoding.ASCII.GetBytes("gChat|*|" + uName + " says : " + msg);
-
-                        chat.Add("gChat");
-                        chat.Add(uName + " says : " + msg);
-                        broadcastBytes = ObjectToByteArray(chat);
-                    }
-                    else
-                    {
-                        //broadcastBytes = Encoding.ASCII.GetBytes("gChat|*|" + msg);
-
-                        chat.Add("gChat");
-                        chat.Add(msg);
-                        broadcastBytes = ObjectToByteArray(chat);
-
-                    }
-
+                   
+                    chat.Add("gChat");
+                    chat.Add(msg);
+                    broadcastBytes = ObjectToByteArray(chat);
                     broadcastStream.Write(broadcastBytes, 0, broadcastBytes.Length); // sen to client msg
                     broadcastStream.Flush();
                     chat.Clear();
@@ -142,6 +174,31 @@ namespace Server
             }
         }  //end broadcast function
 
+        public void sendTimeToClient(string msg)
+        {
+            try
+            {
+                foreach (var Item in clientList) // loop each client
+                {
+                    TcpClient broadcastSocket;
+                    broadcastSocket = (TcpClient)Item.Value;
+                    NetworkStream broadcastStream = broadcastSocket.GetStream();
+                    Byte[] broadcastBytes = null;
+
+
+                    chat.Add("time");
+                    chat.Add(msg);
+                    broadcastBytes = ObjectToByteArray(chat);
+                    broadcastStream.Write(broadcastBytes, 0, broadcastBytes.Length); // sen to client msg
+                    broadcastStream.Flush();
+                    chat.Clear();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }  //end broadcast function
 
         public Object ByteArrayToObject(byte[] arrBytes)
         {
@@ -193,9 +250,11 @@ namespace Server
                             {
                                 textBox1.Text += username + ": " + parts[1] + Environment.NewLine;
                             });
-                            announce(parts[1], username, true);
+                            announce(parts[1]);
                             break;
                         case "sync":
+                            
+
                             this.Invoke((MethodInvoker)delegate // To Write the Received data
                             {
                                 textBox1.Text += username + " time: " + parts[1] + Environment.NewLine;
@@ -203,20 +262,27 @@ namespace Server
                             clientClock.Add(username, DateTime.ParseExact(parts[1], "HH:mm:ss", CultureInfo.InvariantCulture));
                             if(clientClock.Count == clientNumber)
                             {
-                                
+                                int totalSecondsDiff = 0;
 
                                 foreach (KeyValuePair<string, DateTime> kvp in clientClock)
                                 {
-                                    textBox1.Text += "Time Difference: " + kvp.Key + Environment.NewLine;
-                                    TimeSpan span = currentTime.Subtract(kvp.Value);
-                                    textBox1.Text += "Time Difference (seconds): " + span.Seconds + Environment.NewLine;
-                                    textBox1.Text += "Time Difference (minutes): " + span.Minutes + Environment.NewLine;
-                                    textBox1.Text += "Time Difference (hours): " + span.Hours + Environment.NewLine;
-                                    textBox1.Text += "Time Difference: " + span.ToString() + Environment.NewLine;
-           
+                                    int diffSeconds = (int) (kvp.Value - currentTime).TotalSeconds;
+                                    totalSecondsDiff += diffSeconds;
+                                    textBox1.Text += kvp.Key + " time Difference is: " + diffSeconds + Environment.NewLine;
                                 }
+
+                                int avgTimeDiff = totalSecondsDiff / (clientNumber + 1);
+                                textBox1.Text += "Avarage time difference is: " + avgTimeDiff + Environment.NewLine;
+                               
+                                DateTime timeSync = currentTime.AddSeconds(avgTimeDiff);
+
+                                textBox1.Text += "Time after sync: " + timeSync.ToString("HH:mm:ss") + Environment.NewLine;
+
+                                announce("Time after sync: " + timeSync.ToString("HH:mm:ss"));
+                                sendTimeToClient(timeSync.ToString("HH:mm:ss"));
+                                SetSystemDateTime(timeSync);
                             }
-                            announce(parts[1], username, true);
+
                             break;
                     }
 
@@ -227,7 +293,7 @@ namespace Server
                 catch (Exception r)
                 {
                     updateUI("Client Disconnected: " + username);
-                    announce("Client Disconnected: " + username + "$", username, false);
+                    announce("Client Disconnected: " + username + "$");
                     clientList.Remove(username);
 
                     this.Invoke((MethodInvoker)delegate
@@ -242,6 +308,7 @@ namespace Server
 
         private void btnSyncTime_Click(object sender, EventArgs e)
         {
+           
             try
             {
                 currentTime = DateTime.Now;
